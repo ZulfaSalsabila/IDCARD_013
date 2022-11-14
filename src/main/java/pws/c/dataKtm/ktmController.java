@@ -5,7 +5,7 @@
  */
 package pws.c.dataKtm;
 
-import java.io.IOException;
+import java.io.IOException;              
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.apache.tomcat.util.codec.binary.Base64;
@@ -24,7 +24,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class ktmController {
     @RequestMapping("/getData")
     public String getData(@RequestParam("name") String text,
-                          @RequestParam("iamge") MultipartFile file,
+                          @RequestParam("image") MultipartFile file,
                           @RequestParam("tanggal")@DateTimeFormat(pattern = "yyyy-MM-dd") Date date,
                           Model model) throws IOException{
         
@@ -32,7 +32,7 @@ public class ktmController {
         String newTanggal = tanggal.format(date);
         
         String blob = Base64.encodeBase64String(file.getBytes());
-        String gambar = "data:image/jpeg;base64".concat(blob);
+        String gambar = "data:image/jpeg;base64,".concat(blob);
         
         model.addAttribute("nm", text);
         model.addAttribute("tgl", newTanggal);

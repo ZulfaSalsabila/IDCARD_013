@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>Data KTP</title>
+        <title>Tampil Data</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
@@ -16,21 +16,14 @@ and open the template in the editor.
                 margin: auto; 
                 text-align: justify;
             }
-            h2{
-                text-align: center;
-            }
         </style>
     </head>
     <body>
-        <h2>Data KTP siswa C</h2>
-        <hr/>
         <fieldset>
-            <form action="/getData" method="post" enctype="multipart/form-data">
-                Masukkan Nama: <input type="text" name="name"><br><br>
-                Foto diri: <input type="file" name="image"  accept="image/png, image/jpg"/><br><br>
-                Tanggal Lahir:<input type="date" name="tanggal"><br><br>
-                <input type="submit" value="Submit">
-            </form>
+            <h2 align="center">KTP Zulfa Salsabila</h2>
+            <p th:text="${nm}"></p>
+            <p th:text="${tgl}"></p>
+            <img th:src="${img}"/>
         </fieldset>
     </body>
 </html>
